@@ -1,0 +1,53 @@
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class Main {
+
+//Build the Base
+    public static void main(String[] args) {
+        ArrayList<String> ToDo = new ArrayList<String>();
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Please enter a new task");
+        String current;
+
+//Replacing the old recursion method with a cleaner simpler loop
+        do {
+            current = sc.next();
+            if (!current.equalsIgnoreCase("stop")) {
+                ToDo.add(current);
+                System.out.println("Adding " + current + " to the ToDo List");
+                System.out.println("Add another item to the list or type STOP");
+            }
+            //found this ingorecase addon to the .equals love it!
+        } while (!current.equalsIgnoreCase("stop"));
+
+//expanded options to view the list
+//would like to add a 4th option to remove items and then send
+//back to options menu but not sure how to this
+        System.out.println("The ToDo List has " + ToDo.size() + " things left to do. Would you like to:");
+        System.out.println("Press 1: See ToDo List");
+        System.out.println("Press 2: Filter List");
+        System.out.println("Press 3: Quit");
+        //wonder if theres a way to take the keystroke as is without needing to press enter for the scanner
+        
+        int query = sc.nextInt();
+        //easy to read screen print
+        if (query == 1) {
+            for (String e : ToDo) {
+                System.out.println(e);}
+            
+            //filter and print featureing a "for each" loop
+        } else if (query == 2) {
+            System.out.println("Chose a filter:");
+            String filter = sc.next();
+            System.out.println("Listing items containing " + filter);
+            for (String e : ToDo) {
+                if (e.contains(filter)) {
+                    System.out.println(e);}
+                    }
+// do nothing option with politeness!
+        } else {
+            System.out.println("Goodbye!");
+        }
+    }
+}

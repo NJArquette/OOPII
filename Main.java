@@ -1,56 +1,44 @@
-import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Main {
 
-
-    public static ArrayList ToDo = new ArrayList();
-
-
     public static void main(String[] args) {
+
+        System.out.println("Please enter a basic color to test.");
         Scanner sc = new Scanner(System.in);
-        System.out.println("Please enter a new task");
-        String current = sc.nextLine();
-        //trigger recursive method
-        tasks(current);
+        String test = sc.next();
 
-        //report the number of tasks left to do
-        System.out.println("There are " + ToDo.size() + " items in the ToDo list.");
-        System.out.println("Would you like to see the tasks? Press 1 for yes or any key key to exit");
-        int print = sc.nextInt();
-        if (print == 1) {
-            System.out.println(ToDo);
-        } else {
-            System.out.println("Goodbye"); }
+        Test(test);
+
+        System.out.println("Please enter another basic color to test.");
+        String test2 =sc.next();
+
+        Test(test2);
+
+        System.out.println("Mixing colors.");
+
+        Test call = new Test();
+        call.Test(test, test2);
     }
-        //recursive method
-        public static void tasks (String current){
 
-            //ArrayList holding to do tasks
-            Scanner sc = new Scanner(System.in);
-            //System.out.print("BEFORE");
+    private static void Test(String test) {
 
-            // first if loop to filter out "done" from the list
-            if (current.equals("done") || current.equals("Done")) {
-                System.out.println(current);
-            } else {
-//add it to the list!
-                ToDo.add(current);
+        if (test.equalsIgnoreCase("blue")||
+                test.equalsIgnoreCase("red")||
+                test.equalsIgnoreCase("yellow"))
+        {System.out.println(test + " is a primary color.");}
+        else System.out.println(test + " is not a primary color.");
 
-                if (current.equals("done") || current.equals("Done")
-                ) {
-                    System.out.println("Compiling List");
-                    //System.out.println("IN");
-                }
+        if (test.equalsIgnoreCase("blue")||
+                test.equalsIgnoreCase("green")||
+                test.equalsIgnoreCase("purple"))
+        {System.out.println(test + " is a cool color.");}
+        else System.out.println(test + " is not a cool color.");
 
-                //recursion adds to array
-                else {
-                    //System.out.print("AFTER");
-                    System.out.println("Please enter a new task or type Done.");
-                    String repeat = sc.nextLine();
-                    //lets do the time warp again!
-                    tasks(repeat);
-                }
-            }
-        }
+        if (test.equalsIgnoreCase("red")||
+                test.equalsIgnoreCase("yellow")||
+                test.equalsIgnoreCase("orange"))
+        {System.out.println(test + " is a warm color.");}
+        else System.out.println(test + " is not a warm color.");
     }
+}

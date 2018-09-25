@@ -1,0 +1,46 @@
+import java.util.ArrayList;
+import java.util.Scanner;
+ public class Main {
+     public static ArrayList ToDo = new ArrayList();
+     public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Please enter a new task");
+        String current = sc.nextLine();
+        //trigger recursive method
+        tasks(current);
+         //report the number of tasks left to do
+        System.out.println("There are " + ToDo.size() + " items in the ToDo list.");
+        System.out.println("Would you like to see the tasks? Press 1 for yes or any key key to exit");
+        int print = sc.nextInt();
+        if (print == 1) {
+            System.out.println(ToDo);
+        } else {
+            System.out.println("Goodbye"); }
+    }
+        //recursive method
+        public static void tasks (String current){
+             //ArrayList holding to do tasks
+            Scanner sc = new Scanner(System.in);
+            //System.out.print("BEFORE");
+             // first if loop to filter out "done" from the list
+            if (current.equals("done") || current.equals("Done")) {
+                System.out.println(current);
+            } else {
+//add it to the list!
+                ToDo.add(current);
+                 if (current.equals("done") || current.equals("Done")
+                ) {
+                    System.out.println("Compiling List");
+                    //System.out.println("IN");
+                }
+                 //recursion adds to array
+                else {
+                    //System.out.print("AFTER");
+                    System.out.println("Please enter a new task or type Done.");
+                    String repeat = sc.nextLine();
+                    //lets do the time warp again!
+                    tasks(repeat);
+                }
+            }
+        }
+    }

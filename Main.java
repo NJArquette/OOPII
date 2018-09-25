@@ -34,18 +34,22 @@ public class Main {
     //this is how we tell them what they entered
     private static void Test(String test) {
 
+        
+        //primary
         if (test.equalsIgnoreCase("blue")||
                 test.equalsIgnoreCase("red")||
                 test.equalsIgnoreCase("yellow"))
         {System.out.println(test + " is a primary color.");}
         else System.out.println(test + " is not a primary color.");
 
+        //cool
         if (test.equalsIgnoreCase("blue")||
                 test.equalsIgnoreCase("green")||
                 test.equalsIgnoreCase("purple"))
         {System.out.println(test + " is a cool color.");}
         else System.out.println(test + " is not a cool color.");
 
+        //warm
         if (test.equalsIgnoreCase("red")||
                 test.equalsIgnoreCase("yellow")||
                 test.equalsIgnoreCase("orange"))
